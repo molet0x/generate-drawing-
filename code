@@ -1,0 +1,25 @@
+from PIL import Image, ImageDraw
+
+# Loop to generate 100 pixel art images
+for i in range(1, 101):
+    # Create a blank 64x64 image with a white background
+    img = Image.new('RGB', (64, 64), 'white')
+    draw = ImageDraw.Draw(img)
+    
+    # Draw the smile on the image
+    smile_type = i % 3  # Choose different types of smiles based on the loop counter
+    if smile_type == 0:
+        # Type 1: A simple smile
+        draw.arc((10, 10, 54, 54), 0, 180, fill='black', width=3)
+    elif smile_type == 1:
+        # Type 2: A smiling face with closed eyes
+        draw.arc((10, 10, 54, 54), 0, 180, fill='black', width=3)
+        draw.ellipse((24, 24, 40, 40), fill='white', width=3)
+    else:
+        # Type 3: A winking face
+        draw.arc((10, 10, 54, 54), 0, 180, fill='black', width=3)
+        draw.line((26, 34, 34, 34), fill='white', width=3)
+    
+    # Save the image as a JPEG file
+    img_filename = f'smile_{i}.jpg'  # Set the filename based on the loop counter
+    img.save(img_filename, 'JPEG')
