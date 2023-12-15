@@ -1,6 +1,6 @@
 from PIL import Image, ImageDraw
 
-# Loop to generate 100 pixel art images
+# Loop to generate 100 pixel art images 
 for i in range(1, 101):
     # Create a blank 65x65 image with a white background
     img = Image.new('RGB', (65, 65), 'white')
